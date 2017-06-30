@@ -4,7 +4,7 @@
 
 ## Create a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = matrix()) {
-        inv <-NULL                       ## Create a NULL as a place. 
+        inv <-NULL                       ## Create a NULL as a place 
                                          ## holder for inverse matrix.
         set<-function(y){                ## A function to set the matrix.
                 x<<-y                    ## Introduce a new matrix.
@@ -28,13 +28,13 @@ makeCacheMatrix <- function(x = matrix()) {
 z<- makeCacheMatrix()
 cacheSolve <- function(z, ...) {
         inv<-z$getInverseMatrix()  
-        ## Get the m value from the above function.
+        ## Get the cached inverse of a matrix.
         if(!is.null(inv)){                
         ## Check whether the inverse matrix has been calculated.
                 message("getting cached inverse matrix")
                 return (inv)              ## Return cached inverse matrix.
         }
-        data<-z$get()                     ## Get the matrix.
+        data<-z$get()                     ## Get the input matrix.
         inv <-solve(data, ...)            ## Compute the inverse matrix.
         z$setInverseMatrix(inv)           ## Cache the inverse matrix.
         inv        
